@@ -1,6 +1,6 @@
 import './globals.css'
 import Nav from './auth/nav'
-
+import QueryWrapper from './auth/querywrapper'
 
 
 export default function RootLayout({ children }) {
@@ -12,8 +12,10 @@ export default function RootLayout({ children }) {
       */}
       <head />
       <body className='mx-4 md:mx-48 xl:mx96 bg-gray-200'>
+        <QueryWrapper>
             <Nav />
             {children}
+        </QueryWrapper>
       </body>
     </html>
   )
