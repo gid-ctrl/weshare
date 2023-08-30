@@ -1,6 +1,8 @@
 "use client"
 
 import { useState } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import axios from "axios"
 
 
 export default function CreatePost() {
@@ -10,11 +12,20 @@ export default function CreatePost() {
 
   //Create a post
   // Here I am trying to get an API to send data to
+ const {mutate} = useMutation(
+  async (title) => await axios.post("/api/posts/addPosts", {title})
+  )
 
   // initially (e) stated that it is declared but never used. Had to sepecify that this was a FORM EVENT
+  const submitPost = async (e:React.FormEvent) => {
+    e.preventDefault()
+    setIsDisabled(true)
+    mutate(title)
+  }
+
 
       return (
-      <form className="bg-white my-8 p-8 rounded-md ">
+      <form onSubmit={submitPost} className="bg-white my-8 p-8 rounded-md ">
         <div className="flex flex-col my-4">
           <textarea
             onChange={(e) => setTitle(e.target.value)}
