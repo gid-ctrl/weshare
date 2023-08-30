@@ -10,6 +10,7 @@ import toast from "react-hot-toast";
 export default function CreatePost() {
   const [title, setTitle] = useState("")
   const [isDisabled, setIsDisabled] = useState(false)
+  const queryClient = useQueryClient()
 
 
   //Create a post
@@ -23,6 +24,7 @@ export default function CreatePost() {
     toast.success("Thank you for sharing 💙")
     setTitle("")
     setIsDisabled(false)
+    queryClient.invalidateQueries(["posts"])
   },
     }
   ) 
