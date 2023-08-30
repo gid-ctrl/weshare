@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios"
+import toast from "react-hot-toast";
 
 
 
@@ -14,8 +15,18 @@ export default function CreatePost() {
   //Create a post
   // Here I am trying to get an API to send data to
  const {mutate} = useMutation(
-  async (title: string) => await axios.post("/api/posts/addPosts", {title})
-  )
+  async (title: string) => await axios.post("/api/posts/addPosts", {title}),
+  {onError: (error) => {
+    toast.error(error?.response?.data.message)
+  },
+  onSuccess: (data) => {
+    toast.success("Thank you for sharing 💙")
+    setTitle("")
+    setIsDisabled(false)
+  },
+    }
+  ) 
+
   // initially (e) stated that it is declared but never used. Had to sepecify that this was a FORM EVENT
   const submitPost = async (e:React.FormEvent) => {
     e.preventDefault()

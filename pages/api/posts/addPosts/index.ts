@@ -14,17 +14,19 @@ export default async function handler(
         return res.status(401).json({mesage: "Please sign in"})
 
         const title: string = req.body.title
-
+        console.log(title)
         // Get user
         const prismaUser = await prisma.user.findUnique({
             where: {email: session?.user?.email},
         })
 
         // Check the title is working
-        if(title.length > 300) 
-        return res.status(403).json({message: "Please shorten your share of words"})
-    if(title.length)
-    return res.status(403).json({message: "Please dont leave empty"})
+        if(title.length > 300) {
+            return res.status(403).json({message: "Please shorten your share of words"})
+        }
+    if(!title.length){
+        return res.status(403).json({message: "Please dont leave empty"})
+    }
 
     // Create Post
     try{
