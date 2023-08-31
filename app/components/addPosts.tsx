@@ -45,7 +45,7 @@ export default function CreatePost() {
           placeholder="Share your thoughts"
           className="p-4 text-lg rounded-md my-2 bg-gray-200"
         />
-        <div className="absolute right-2 bottom-5">
+        <div className="absolute right-2 bottom-3">
           <EmojiPicker onChange={handleEmojiChange} />
         </div>
       </div>

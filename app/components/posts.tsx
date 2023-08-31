@@ -3,10 +3,13 @@ import { QueryClient, useMutation, useQueryClient } from "@tanstack/react-query"
 import axios from "axios"
 import Image from "next/image"
 import Link from "next/link"
+import CommentInput from "../components/commentInput";
+import React, { useState } from "react";
 
 export default function Post({ avatar, name, postTitle, id }) {
 
   const queryClient = useQueryClient()
+  const [isCommenting, setIsCommenting] = useState(false);
 
   const {mutate} = useMutation(
     async (id: string) => await axios.delete("/api/posts/deletePosts", {data:id}),
@@ -38,13 +41,13 @@ export default function Post({ avatar, name, postTitle, id }) {
                 <p className="break-all">{postTitle}</p>
             </div>
             <div className="flex gap-4 cursor-pointer items-center">
-                <Link href={`/post/${id}`}>
-                    <p className="text-sm font-bold text-gray-800">
-                        Comments
-                    </p>
-                </Link>
-                <button className="text-sm font-bold text-red-500" onClick={deletePost}>Delete</button>
+                     <button className="text-sm font-bold text-gray-800 " onClick={() => setIsCommenting(!isCommenting)}>
+          Add Comment
+        </button>
+        <button className="text-sm font-bold text-red-500" onClick={deletePost}>Delete</button>
+       
+      </div>
+      {isCommenting && <CommentInput postId={id} />}
             </div>
-        </div>
     )
 }
