@@ -1,6 +1,8 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../pages/api/auth/[...nextauth]";
 import { redirect } from "next/navigation";
+import Login from "../auth/login";
+import Link from "next/link";
 
 export default async function Dashboard() {
     const session = await getServerSession(authOptions);
@@ -18,9 +20,12 @@ export default async function Dashboard() {
                 <p className="text-gray-600 mt-2">
                     Join the conversation and share your feelings with the group!
                 </p>
+                <Link href={"/"}>
                 <button className="mt-4 px-4 py-2 bg-gray-800 text-white rounded-md">
                     Start Sharing
                 </button>
+                {!session?.user && <Login />}
+                </Link>
             </div>
         </main>
     );
