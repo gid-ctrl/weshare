@@ -39,20 +39,20 @@ $ npm run dev
 
 ## UI Screenshots
 
-![WeShare](./public/assets/images/weshare-ui2.png)
+![WeShare](./app/assets/images/weshare-ui2.png)
 
 ### Desktop Screenshots of the Site
 
 #### Home Page
 
-![Home Page](./public/assets/images/weshare-ui.png)
+![Home Page](./app/assets/images/weshare-ui.png)
 
 #### Login Page
 
-![Login Page](./public/assets/images/login.png)
+![Login Page](./app/assets/images/login.png)
 
 #### Login Page - Google Login
 
-![Login Page](./public/assets/images/google-login.png)
+![Login Page](./app/assets/images/google-login.png)
 
 
