@@ -45,14 +45,14 @@ $ npm run dev
 
 #### Home Page
 
-![Home Page](./app/assets/images/weshare-ui.png)
+![Home Page](/app/assets/images/weshare-ui.png)
 
 #### Login Page
 
-![Login Page](./app/assets/images/login.png)
+![Login Page](/app/assets/images/login.png)
 
 #### Login Page - Google Login
 
-![Login Page](./app/assets/images/google-login.png)
+![Login Page](/app/assets/images/google-login.png)
 
 
