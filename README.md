@@ -39,7 +39,7 @@ $ npm run dev
 
 ## UI Screenshots
 
-![WeShare](./app/assets/images/weshare-ui2.png)
+![WeShare](/app/assets/images/weshare-ui2.png)
 
 ### Desktop Screenshots of the Site
 
