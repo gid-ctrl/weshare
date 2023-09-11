@@ -33,7 +33,7 @@ export default function CommentInput({ postId }) {
         onChange={(e) => setComment(e.target.value)}
         value={comment}
         placeholder="Add a comment..."
-        className="p-2 text-sm rounded-md bg-gray-200"
+        className="p-2 text-sm rounded-md my-5 ml-auto bg-gray-200"
       />
       <button
         disabled={isDisabled}

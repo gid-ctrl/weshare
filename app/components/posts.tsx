@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import CommentInput from "../components/commentInput";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function Post({ avatar, name, postTitle, id }) {
 
@@ -19,6 +20,7 @@ export default function Post({ avatar, name, postTitle, id }) {
       },
       onSuccess: (data) => {
         queryClient.invalidateQueries(["posts"])
+        toast.success("Deleting post")
       },
     }
     )

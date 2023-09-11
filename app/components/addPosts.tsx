@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { Smile } from "lucide-react";
 import { EmojiPicker } from "./emoji-picker";
 
 export default function CreatePost() {
